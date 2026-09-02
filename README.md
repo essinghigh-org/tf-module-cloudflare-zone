@@ -6,7 +6,7 @@ Terraform module that manages `cloudflare_zone_setting` resources via a `setting
 
 ```hcl
 module "zone_essinghigh" {
-  source  = "terraform.essinghigh.dev/essinghigh-org/zone/cloudflare"
+  source  = "terraform.essinghigh.dev/essinghigh-org/cloudflare-zone/cloudflare"
   version = "~> 0.1"
 
   zone_id = var.zone_id
