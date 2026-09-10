@@ -1,13 +1,12 @@
 # tf-module-cloudflare-zone
 
-Terraform module that manages `cloudflare_zone_setting` resources via a `settings` map — registry-ready extraction of `tf-deploy-cloudflare/modules/zone`.
+Terraform module that manages `cloudflare_zone_setting` resources via a `settings` map.
 
 ## Usage
 
 ```hcl
-module "zone_essinghigh" {
-  source  = "terraform.essinghigh.dev/essinghigh-org/cloudflare-zone/cloudflare"
-  version = "~> 0.1"
+module "zone" {
+  source  = "github.com/essinghigh-org/tf-module-cloudflare-zone"
 
   zone_id = var.zone_id
   settings = {
