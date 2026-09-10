@@ -45,8 +45,11 @@ variable "catch_all_action" {
   default = null
 
   validation {
-    condition     = var.catch_all_action == null || contains(["drop", "forward"], var.catch_all_action.type)
-    error_message = "catch_all_action.type must be drop or forward."
+    condition = var.catch_all_action == null || (
+      contains(["drop", "forward"], var.catch_all_action.type) &&
+      (var.catch_all_action.type != "forward" || try(length(var.catch_all_action.value), 0) > 0)
+    )
+    error_message = "catch_all_action.type must be drop or forward, and forward requires at least one target in value."
   }
 }
 

@@ -14,8 +14,8 @@ output "record_ids" {
 }
 
 output "email_enabled" {
-  description = "Whether Email Routing was enabled"
-  value       = var.email_enabled
+  description = "Whether the Email Routing catch-all is managed"
+  value       = var.email_enabled && var.catch_all_action != null
 }
 
 output "firewall_custom_id" {
